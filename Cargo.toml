@@ -1,0 +1,15 @@
+[package]
+name = "alpacka"
+version = "0.1.0"
+edition = "2024"
+description = "Library for reading Arch Linux package database"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+flate2 = "1.0.35"
+smol_str = "0.3.2"
+tar = "0.4.43"
+thiserror = "2.0.11"
+
+[dev-dependencies]
+jiff = "0.1.26"
