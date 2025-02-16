@@ -1,13 +1,15 @@
 use crate::{Pkg, PkgDesc};
 
-fn pkg_matches_dep(pkg: &PkgDesc, dependent_pkg: &PkgDesc) -> bool {
+#[must_use]
+pub fn pkg_matches_dep(pkg: &PkgDesc, dependent_pkg: &PkgDesc) -> bool {
     dependent_pkg
         .depends
         .iter()
         .any(|dep| dep.name == pkg.name || pkg.provides.iter().any(|prov| prov.satisfies(dep)))
 }
 
-fn pkg_matches_opt_dep(pkg: &PkgDesc, dependent_pkg: &PkgDesc) -> bool {
+#[must_use]
+pub fn pkg_matches_opt_dep(pkg: &PkgDesc, dependent_pkg: &PkgDesc) -> bool {
     dependent_pkg.opt_depends.iter().any(|opt_dep| {
         opt_dep.dep.name == pkg.name
             || pkg
